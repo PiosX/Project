@@ -1,11 +1,13 @@
+*{
+    box-sizing: border-box;
+}
 body{
     margin: 0;
-    background-color: #21252B;
-    display: flex;
+    background-color: #0D0D0D;
 }
 
 .top-container{
-    background-color: #333842;
+    background-color: #262626;
     width: 100%;
     height: 80px;
 }
@@ -18,8 +20,16 @@ body{
     padding: 30px;
 }
 
+.top-container a:hover{
+    background-color: #595959;
+    margin: 0%;
+    padding-bottom: 27px;
+}
+
 .top-container nav{
     margin-left: 40px;
+    width: 60%;
+    float: left;
 }
 
 #homeLog{
@@ -38,4 +48,31 @@ body{
 
 #homeLog:hover{
     background-color: #11ACDD;
+}
+
+.mid-container{
+    width: 100%;
+    height: 800px;
+    float: left;
+}
+
+#shadow-log{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+    opacity: 0.5;
+    display: none;
+}
+
+#log-panel{
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 500px;
+    background-color: #262626;
 }
