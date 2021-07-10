@@ -10,8 +10,31 @@
 </head>
 <body>
         <div id="shadow-log">
+            
             <div id="log-panel">
-        </div>  
+                <div id="ani-reg">
+                </div>
+                <div id="close-but">
+                    <p onclick="closeDiv()">x</p>
+                </div>
+                <div id="log">
+                    <h2>Welcome</h2>
+                    <form action="" method="POST" id="login-form">
+                        <input type="email" name="email" placeholder="Email"/><br />
+                        <input type="password" name="password" placeholder="Password"/><br />
+                        <input type="submit" name="log-sub" value="Sign In" id="log-sub"/>
+                        <p id="reg">Don't have an account? <a href="#" onclick="switchReg()">Sign Up</a></p>
+                    </form>   
+                </div>
+                <div id="regi">
+                    <form action="" method="POST" id="reg-form">
+                        <input type="text" name="login" placeholder="Login"/><br />
+                        <input type="email" name="email" placeholder="Email"/><br />
+                        <input type="password" name="password" placeholder="Password"/><br />
+                        <input type="submit" name="reg-sub" value="Sign Up" id="reg-sub"/>
+                    </form>  
+                </div>      
+            </div>  
         </div>
         <div class="top-container">
             <a href="">Home</a>

@@ -62,7 +62,7 @@ body{
     height: 100%;
     background-color: black;
     z-index: 1;
-    opacity: 0.5;
+    
     display: none;
 }
 
@@ -75,4 +75,129 @@ body{
     width: 450px;
     height: 500px;
     background-color: #262626;
+}
+
+#close-but{
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    margin-left: auto;
+    margin-right: 5%;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+#close-but:hover{
+    background-color: #11ACDD;
+}
+
+#login-form{
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 8%;
+}
+
+#login-form input:not(#log-sub){
+    padding: 15px 80px 15px 20px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid white;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    color: #11ACDD;
+    margin-bottom: 30px;
+}
+
+#login-form span{
+    color: white;
+}
+
+#log-sub{
+    margin-top: 20px;
+    padding: 15px 90px 15px 90px;
+    border-radius: 60px;
+    cursor: pointer;
+    background: none;
+    color: white;
+    border: 2px solid #077FF5;
+}
+
+#log-sub:hover{
+    background-color: #11ACDD;
+}
+
+#log-panel #reg{
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+}
+
+#log-panel a{
+    text-decoration: none;
+    color: #077FF5;
+}
+
+#log-panel h2{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 45px;
+    color: #11ACDD;
+    margin-bottom: 50px;
+}
+
+#reg-form{
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 8%;
+    display: none;
+}
+
+#reg-sub{
+    margin-top: 20px;
+    padding: 15px 90px 15px 90px;
+    border-radius: 60px;
+    cursor: pointer;
+    background: none;
+    color: white;
+    border: 2px solid #077FF5;
+}
+
+#reg-form input:not(#reg-sub){
+    padding: 15px 80px 15px 20px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid white;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    color: #11ACDD;
+    margin-bottom: 30px;
+}
+
+#reg-sub:hover{
+    background-color: #11ACDD;
+}
+
+#ani-reg{
+    position: absolute;
+    width: 450px;
+    height: 500px;
+    background-color: aqua;
+    z-index: 1;
+    animation: scaling 1s;
+    animation-fill-mode: forwards;
+    display: none;
+}
+
+@keyframes scaling{
+    0%   {transform: scale(.0);}
+    25% {transform: scale(1.0);};
+    50% {transform: scale(1.0);opacity: 0.5;}
+    100% {transform: scale(1.0);opacity: 0;visibility: hidden;}
 }
