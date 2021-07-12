@@ -56,16 +56,6 @@ body{
     float: left;
 }
 
-#shadow-log{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1;
-    
-    display: none;
-}
-
 #log-panel{
     margin: auto;
     position: absolute;
@@ -75,22 +65,6 @@ body{
     width: 450px;
     height: 500px;
     background-color: #262626;
-}
-
-#close-but{
-    width: 25px;
-    height: 25px;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-    margin-left: auto;
-    margin-right: 5%;
-    margin-top: 0;
-    cursor: pointer;
-}
-
-#close-but:hover{
-    background-color: #11ACDD;
 }
 
 #login-form{
@@ -110,10 +84,6 @@ body{
     font-size: 16px;
     color: #11ACDD;
     margin-bottom: 30px;
-}
-
-#login-form span{
-    color: white;
 }
 
 #log-sub{
@@ -142,7 +112,7 @@ body{
 }
 
 #log-panel h2{
-    margin: 0;
+    margin-top: 40px;
     padding: 0;
     text-align: center;
     font-size: 45px;
@@ -150,11 +120,19 @@ body{
     margin-bottom: 50px;
 }
 
+#regi h2{
+    margin-top: 40px;
+    padding: 0;
+    text-align: center;
+    font-size: 45px;
+    color: #11ACDD;
+    margin-bottom: 40px;
+}
+
 #reg-form{
     margin: auto;
     text-align: center;
     position: relative;
-    display: none;
 }
 
 #reg-sub{
@@ -182,10 +160,6 @@ body{
 #reg-form p{
     margin-top: 20px;
     color: white;
-}
-
-#reg-inf{
-    display: none;
 }
 
 #reg-sub:hover{
