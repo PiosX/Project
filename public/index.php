@@ -22,7 +22,7 @@
                     <p onclick="closeDiv()">x</p>
                 </div>
                 <div id="log">
-                    <h2>Welcome</h2>
+                    <h2 id="log-inf">Welcome</h2>
                     <form action="" method="POST" id="login-form">
                         <input type="email" name="email" placeholder="Email"/><br />
                         <input type="password" name="password" placeholder="Password"/><br />
@@ -31,12 +31,29 @@
                     </form>   
                 </div>
                 <div id="regi">
+                    <h2 id="reg-inf">Sign Up</h2>
                     <form action="" method="POST" id="reg-form">
                         <input type="text" name="login" placeholder="Login"/><br />
                         <input type="email" name="email" placeholder="Email"/><br />
                         <input type="password" name="password" placeholder="Password"/><br />
-                        <input type="submit" name="reg-sub" value="Sign Up" id="reg-sub"/>
-                    </form>  
+                        <input type="submit" name="reg-sub" value="Sign Up" id="reg-sub"v/>
+                        <p>Back to <a href="#" onclick="switchReg()">login</a></p>
+                    </form> 
+                    <?php
+                        $register = new \Classes\Controller\UsersContr();
+                        $login = $_POST['login'];
+                        $email = $_POST['email'];
+                        $password = $_POST['password'];
+                        $register->createUser($login,$email,$password);
+
+                        if(isset($errorR) && count($errorR) > 0)
+                        {
+                            foreach($errorR as $error_msg)
+                            {
+                                echo "<div class='alert-error'>$error_msg</div>";
+                            }         
+                        }
+                    ?>
                 </div>      
             </div>  
         </div>

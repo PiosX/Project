@@ -154,7 +154,6 @@ body{
     margin: auto;
     text-align: center;
     position: relative;
-    top: 8%;
     display: none;
 }
 
@@ -178,6 +177,15 @@ body{
     font-size: 16px;
     color: #11ACDD;
     margin-bottom: 30px;
+}
+
+#reg-form p{
+    margin-top: 20px;
+    color: white;
+}
+
+#reg-inf{
+    display: none;
 }
 
 #reg-sub:hover{
