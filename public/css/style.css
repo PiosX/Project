@@ -63,8 +63,9 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 450px;
-    height: 500px;
+    height: 550px;
     background-color: #262626;
+    border-radius: 30px;
 }
 
 #login-form{
@@ -117,7 +118,7 @@ body{
     text-align: center;
     font-size: 45px;
     color: #11ACDD;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 
 #regi h2{
@@ -126,7 +127,7 @@ body{
     text-align: center;
     font-size: 45px;
     color: #11ACDD;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 #reg-form{
@@ -164,6 +165,20 @@ body{
 
 #reg-sub:hover{
     background-color: #11ACDD;
+}
+
+.alert-error{
+    color: red;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.alert-success{
+    color: green;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 #ani-reg{

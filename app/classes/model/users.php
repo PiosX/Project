@@ -7,8 +7,11 @@ class Users extends \Classes\Config\Dbh
     {
         protected function setUser($login,$email,$password)
         {
-            if(isset($login) && isset($email) && isset($password))
+            if(isset($login) && isset($email) && isset($password) && !empty($login) && !empty($email) && !empty($password))
             {
+                $login = trim($login);
+                $email = trim($email);
+                $password = trim($password);
                 $cost = array("cost"=>12);
                 $hashPwd = password_hash($password, PASSWORD_BCRYPT, $cost);
                 if(filter_var($login, FILTER_SANITIZE_STRING) && filter_var($email, FILTER_SANITIZE_EMAIL))
@@ -18,6 +21,7 @@ class Users extends \Classes\Config\Dbh
                         $sql = "INSERT INTO users(login,email,password) VALUES(?,?,?)";
                         $stmt = $this->connect()->prepare($sql);
                         $stmt->execute([$login,$email,$hashPwd]);
+                        $succes = "User has been created!";
                     }catch(\PDOException $e)
                     {
                         echo "Error: ".$e->getMessage();
@@ -42,6 +46,17 @@ class Users extends \Classes\Config\Dbh
                 {
                     $errorR[] = "Password is required.";
                 }
+            }
+            if(isset($errorR) && count($errorR) > 0)
+            {
+                foreach($errorR as $error_msg)
+                {
+                    echo "<div class='alert-error'>$error_msg</div>";
+                }         
+            }
+            if(isset($succes))
+            {
+                echo "<div class='alert-success'>$succes</div>";
             }
         }
     }

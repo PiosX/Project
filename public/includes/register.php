@@ -23,17 +23,12 @@
             </form>
             <?php
                 $register = new \Classes\Controller\UsersContr();
-                $login = $_POST['login'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $register->createUser($login,$email,$password);
-
-                if(isset($errorR) && count($errorR) > 0)
+                if(isset($_POST['reg-sub']))
                 {
-                    foreach($errorR as $error_msg)
-                    {
-                        echo "<div class='alert-error'>$error_msg</div>";
-                    }         
+                    $login = $_POST['login'];
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+                    $register->createUser($login,$email,$password);
                 }
             ?>
         </div>      
