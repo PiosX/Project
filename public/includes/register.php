@@ -12,7 +12,7 @@
     <script src="../javascript/randomEye.js"></script>
 </head>
 <body>
-    <div class="eye">
+    <div id="eye">
         <div class="eyelid">
             <span></span>
         </div>
