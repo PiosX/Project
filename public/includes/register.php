@@ -8,10 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/regstyle.css" />
+    <script src="../javascript/randomEye.js"></script>
 </head>
-<body>     
+<body>
+    <div class="eye">
+        <div class="eyelid">
+            <span></span>
+        </div>
+        <div class="ball">          
+        </div>
+    </div>
     <div id="log-panel">
+        <div class="eye-r">
+            <div class="ball-r">       
+            </div>
+        </div>
         <div id="regi">
             <h2 id="reg-inf">Sign Up</h2>
             <form action="" method="POST" id="reg-form">

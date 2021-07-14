@@ -16,16 +16,29 @@ class Users extends \Classes\Config\Dbh
                 $hashPwd = password_hash($password, PASSWORD_BCRYPT, $cost);
                 if(filter_var($login, FILTER_SANITIZE_STRING) && filter_var($email, FILTER_SANITIZE_EMAIL))
                 {
-                    try
+                    $sql = "SELECT * FROM users WHERE login = :login OR email = :email";
+                    $stmt = $this->connect()->prepare($sql);
+                    $stmt->bindParam(":login",$login);
+                    $stmt->bindParam(":email",$email);
+                    $stmt->execute();
+                    $stmt->closeCursor();
+                    if($stmt->rowCount()==0)
                     {
-                        $sql = "INSERT INTO users(login,email,password) VALUES(?,?,?)";
-                        $stmt = $this->connect()->prepare($sql);
-                        $stmt->execute([$login,$email,$hashPwd]);
-                        $succes = "User has been created!";
-                    }catch(\PDOException $e)
-                    {
-                        echo "Error: ".$e->getMessage();
+                        try
+                        {
+                            $sql = "INSERT INTO users(login,email,password) VALUES(?,?,?)";
+                            $stmt = $this->connect()->prepare($sql);
+                            $stmt->execute([$login,$email,$hashPwd]);
+                            $succes = "User has been created!";
+                        }catch(\PDOException $e)
+                        {
+                            echo "Error: ".$e->getMessage();
+                        }
                     }
+                    else
+                    {
+                        $errorR[] = "Login or Email already registered.";
+                    }   
                 }
                 else
                 {
