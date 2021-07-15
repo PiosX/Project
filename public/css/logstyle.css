@@ -19,7 +19,7 @@ body{
     border: 1px solid #00ffff;
 }
 
-#log-panel #reg{
+#log-panel #log{
     margin-top: 50px;
     text-align: center;
     color: white;
@@ -30,7 +30,7 @@ body{
     color: #ffff0f;
 }
 
-#regi h2{
+#log h2{
     margin-top: 40px;
     padding: 0;
     text-align: center;
@@ -39,13 +39,13 @@ body{
     margin-bottom: 50px;
 }
 
-#reg-form{
+#login-form{
     margin: auto;
     text-align: center;
     position: relative;
 }
 
-#reg-sub{
+#log-sub{
     margin-top: 20px;
     padding: 15px 90px 15px 90px;
     border-radius: 60px;
@@ -55,7 +55,7 @@ body{
     border: 2px solid #00ffff;
 }
 
-#reg-form input:not(#reg-sub){
+#login-form input:not(#log-sub){
     padding: 15px 80px 15px 20px;
     border: none;
     background-color: #222222;
@@ -73,12 +73,12 @@ body{
     opacity: 0.7;
 }
 
-#reg-form p{
+#login-form p{
     margin-top: 20px;
     color: white;
 }
 
-#reg-sub:hover{
+#log-sub:hover{
     background-color: #11ACDD;
 }
 

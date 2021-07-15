@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="../css/regstyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded&display=swap" rel="stylesheet">
     <script src="../javascript/randomEye.js"></script>
 </head>
 <body>
@@ -19,7 +22,7 @@
         <div class="ball">          
         </div>
     </div>
-    <div id="log-panel">
+    <div id="log-panel" class="gradient-border">
         <div class="eye-r">
             <div class="ball-r">       
             </div>
