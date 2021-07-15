@@ -1,3 +1,6 @@
+<?php
+    require ('../../vendor/autoload.php'); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +31,17 @@
                 <input type="password" name="password" placeholder="Password"/><br />
                 <input type="submit" name="log-sub" value="Sign In" id="log-sub"/>
                 <p id="reg">Don't have an account? <a href="register.php">Sign Up</a></p>
-            </form>   
+            </form>  
+            <?php
+                $log_in = new \Classes\Controller\UsersContr();
+                if(isset($_POST['log-sub']))
+                {
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+
+                    $log_in->loginUser($email,$password);
+                }
+            ?>
         </div>
     </div>  
 </body>

@@ -3,7 +3,7 @@ namespace Classes\Model;
 
 use PDOException;
 
-class Users extends \Classes\Config\Dbh
+    class Users extends \Classes\Config\Dbh
     {
         protected function setUser($login,$email,$password)
         {
@@ -70,6 +70,59 @@ class Users extends \Classes\Config\Dbh
             if(isset($succes))
             {
                 echo "<div class='alert-success'>$succes</div>";
+            }
+        }
+
+        protected function getUser($email,$password)
+        {
+            if(isset($email) && isset($password) && !empty($email) && !empty($password))
+            {
+                $email = trim($email);
+                $password = trim($password);
+
+                if(filter_var($email, FILTER_SANITIZE_EMAIL) && filter_var($password, FILTER_SANITIZE_STRING))
+                {
+                    $sql = "SELECT * FROM users WHERE email = :email";
+                    $stmt = $this->connect()->prepare($sql);
+                    $stmt->bindParam(":email", $email);
+                    $stmt->execute();
+
+                    if($stmt->rowCount()>0)
+                    {
+                        $row = $stmt->fetch();
+                        if(password_verify($password, $row['password']))
+                        {
+                            unset($row['password']);
+                            header("Location:content/profile.php");
+                        }
+                        else
+                        {
+                            $errorL[] = "Invalid Email or Password.";
+                        }
+                    }
+                    else
+                    {
+                        $errorL[] = "Invalid Email or Password.";
+                    }
+                }
+            }
+            else
+            {
+                if(!isset($email) || empty($email))
+                {
+                    $errorL[] = "Email is required.";
+                }
+                else if(!isset($password) || empty($password))
+                {
+                    $errorL[] = "Password is required.";
+                }
+            }
+            if(isset($errorL) && count($errorL) > 0)
+            {
+                foreach($errorL as $error_msg)
+                {
+                    echo "<div class='alert-error'>$error_msg</div>";
+                }         
             }
         }
     }

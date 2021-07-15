@@ -7,4 +7,9 @@ namespace Classes\Controller;
         {
             $this->setUser($login,$email,$password);
         }
+
+        public function loginUser($email, $password)
+        {
+            $this->getUser($email,$password);
+        }
     }
