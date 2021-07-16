@@ -93,7 +93,11 @@ use PDOException;
                         if(password_verify($password, $row['password']))
                         {
                             unset($row['password']);
-                            header("Location:content/profile.php");
+                            $this->createUserSession($email);
+                            if(isset($_SESSION['email']))
+                            {
+                                header("Location:content/profile.php");
+                            }
                         }
                         else
                         {
@@ -124,5 +128,19 @@ use PDOException;
                     echo "<div class='alert-error'>$error_msg</div>";
                 }         
             }
+        }
+
+        public function createUserSession($email)
+        {
+            session_start();
+            $_SESSION['email'] = $email;
+
+            $sql = "SELECT * FROM users WHERE email = :email";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->bindParam(":email", $_SESSION['email']);
+            $stmt->execute();
+            $row = $stmt->fetch();
+            $_SESSION['login'] = $row['login'];
+            $_SESSION['time'] = time() + (10*60);
         }
     }

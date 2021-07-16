@@ -53,6 +53,7 @@ body{
     background: none;
     color: white;
     border: 2px solid #00ffff;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 #reg-form input:not(#reg-sub){
@@ -79,18 +80,21 @@ body{
 }
 
 #reg-sub:hover{
-    background-color: #11ACDD;
+    color: #060606;
+    font-size: 18px;
+    box-shadow: 0 0 40px 40px #00ffff inset;
 }
 
 .alert-error{
-    color: red;
+    color: #c00;
     text-align: center;
     margin: 0;
     padding: 0;
+    font-weight: bold;
 }
 
 .alert-success{
-    color: green;
+    color: #36d800;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -127,7 +131,7 @@ body{
     width: 25px;
     height: 25px;
     background-color: #060606;
-    border: 6px solid #576574;
+    border: 6px solid #11ACDD;
     border-radius: 50%;
 }
 

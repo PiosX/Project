@@ -16,7 +16,7 @@ body{
     width: 450px;
     height: 550px;
     background-color: #060606;
-    border: 1px solid #00ffff;
+    border: 1px solid #e91e63;
 }
 
 #log-panel #log{
@@ -53,6 +53,7 @@ body{
     background: none;
     color: white;
     border: 2px solid #00ffff;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 #login-form input:not(#log-sub){
@@ -79,7 +80,9 @@ body{
 }
 
 #log-sub:hover{
-    background-color: #11ACDD;
+    color: #060606;
+    font-size: 18px;
+    box-shadow: 0 0 40px 40px #00ffff inset;
 }
 
 .alert-error{
@@ -127,7 +130,7 @@ body{
     width: 25px;
     height: 25px;
     background-color: #060606;
-    border: 6px solid #576574;
+    border: 6px solid #11ACDD;
     border-radius: 50%;
 }
 
