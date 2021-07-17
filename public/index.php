@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="javascript/log_panel.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="top-container">
@@ -21,9 +23,33 @@
         <button id="homeLog" onclick="location.href='includes/login.php'">Sign In</button>     
     </div>
     <div class="mid-container">
-        
+        <div id="eyes">
+            <div class="eye1">
+                <div class="eyelid">
+                    <span></span>
+                </div>
+                <div class="ball">          
+                </div>
+            </div>
+            <div class="eye2">
+                <div class="eyelid">
+                    <span></span>
+                </div>
+                <div class="ball">          
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="bot-container">
+    <div class="second-container">
+
+    </div>
+    <div class="third-container">
+
+    </div>
+    <div class="fourth-container">
+
+    </div>
+    <div class="bottom-container">
 
     </div>
 </body>
