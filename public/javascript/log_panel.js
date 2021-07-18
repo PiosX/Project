@@ -1,22 +1,18 @@
-function showDiv(){
-    var div = document.getElementById("shadow-log");
-    var reg = document.getElementById("reg-form");
-    var log = document.getElementById("login-form");
-    var ani = document.getElementById("ani-reg");
-    var reg_inf = document.getElementById("reg-inf");
-    var log_inf = document.getElementById("log-inf");
-    if(!div.style.display || div.style.display == "none")
+function showBut(){
+    var but1 = document.getElementById("profile-edit");
+    var but2 = document.getElementById("save-changes");
+    var but3 = document.getElementById("upload-image");
+    if(!but2.style.display || but2.style.display == "none")
     {
-        div.style.display = "block";
-        reg.style.display = "none";
-        ani.style.display = "none";
-        log.style.display = "block";
-        log_inf.style.display= "block";
-        reg_inf.style.display = "none";
+        but1.style.display = "none";
+        but2.style.display = "block";
+        but3.style.display = "block";
     }
     else
     {
-        div.style.display = "none";
+        but1.style.display = "block";
+        but2.style.display = "none";
+        but3.style.display = "none";
     }
 }
 

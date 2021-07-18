@@ -143,4 +143,12 @@ use PDOException;
             $_SESSION['login'] = $row['login'];
             $_SESSION['time'] = time() + (10*60);
         }
+
+        public function logout($location)
+        {
+            session_destroy();
+            unset($_SESSION['email']);
+            unset($_SESSION['login']);
+            header("Location:$location");
+        }
     }

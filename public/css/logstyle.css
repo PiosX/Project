@@ -86,14 +86,14 @@ body{
 }
 
 .alert-error{
-    color: red;
+    color: #c00;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
 .alert-success{
-    color: green;
+    color: #36d800;
     text-align: center;
     margin: 0;
     padding: 0;

@@ -10,10 +10,8 @@ require ('../../../vendor/autoload.php');
     }
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
     {
-        session_destroy();
-        unset($_SESSION['email']);
-        unset($_SESSION['login']);
-        header("Location:../../index.php?action=logout");
+        $logout = new \Classes\Model\Users();
+        $logout->logout('../../index.php?action=logout');
     }
 ?>
 <!DOCTYPE html>
@@ -27,17 +25,32 @@ require ('../../../vendor/autoload.php');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded&display=swap" rel="stylesheet">
+    <script src="../../javascript/log_panel.js"></script>
 </head>
 <body>
     <div class="top-container">
         <a href="">Informations</a>
         <a href="">Chat</a>
         <a href="">Forum</a>
-        <a href="profile.php">Profile</a>
+        <a href="profile.php" id="actual">Profile</a>
         <button id="homeLog" onclick="location.href='?action=logout'">Logout</button>     
     </div>
     <div class="mid-container">
-        
+        <div id="profile-data">
+            <div id="profile">
+                <p id="profile-name">Ali Baba</p>
+            </div>
+            <div id="profile-avatar">
+                <div id="profile-image">
+                    <input id="upload-image" type="file" name="image">
+                </div>
+                <button id="profile-edit" onclick="showBut()">Edit Profile</button>
+                <input id="save-changes" type="submit" name="upload-changes" value="Save" onclick="showBut()">
+            </div> 
+            <div id="profile-stats">
+
+            </div>
+        </div>
     </div>
 </body>
 </html>
