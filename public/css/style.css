@@ -70,7 +70,9 @@ body{
     transform: translate(-50%,-50%);
     width: 13%;
     height: 13%;
+    display: block;
 }
+
 
 .eye1{
     position: fixed;
@@ -114,18 +116,24 @@ body{
                 0 0 3px #11ACDD,
                 0 0 4px #11ACDD,
                 0 0 5px #11ACDD;
-    animation: eyeGlow 8s forwards;
+    animation: eyeGlow 12s forwards;
 }
 
 @keyframes eyeGlow {
     0% {box-shadow: none; border:none;}
     20% {box-shadow: none; border:none;}
     21% {box-shadow: none; border:8px solid #11ACDD;}
-    100% {box-shadow: 0 0 4px #11ACDD,
+    67% {box-shadow: 0 0 4px #11ACDD,
         0 0 8px #11ACDD,
         0 0 14px #11ACDD,
         0 0 18px #11ACDD,
         0 0 23px #11ACDD;}
+    98% {box-shadow: 0 0 4px #11ACDD,
+        0 0 8px #11ACDD,
+        0 0 14px #11ACDD,
+        0 0 18px #11ACDD,
+        0 0 23px #11ACDD;}
+    100% {box-shadow: none;}
 }
 
 .eyelid{
@@ -144,7 +152,19 @@ body{
     height: 0%;
     background-color: #060606;
     border-radius: 0 0 60% 60%;
-    animation: blink 8s;
+    animation: blink 12s forwards;
+}
+
+@keyframes blink {
+    0% {height: 0%;}
+    80% {height: 0%;}
+    81% {height: 100%;}
+    84% {height: 0%;}
+    88% {height: 0%;}
+    89% {height: 100%;}
+    91% {height: 0%;}
+    98% {height: 0%;}
+    100% {height: 100%;}
 }
 
 .second-container{
@@ -211,4 +231,35 @@ body{
     width: 100%;
     height: 15vh;
     background-color: #060606;
+}
+
+.typewrite{
+    text-align: center;
+    position: relative;
+    color: white;
+    top: 40%;
+    left: 50%;
+    width: 32rem;
+    font-size: 6rem;
+    transform: translate(-50%,-50%);
+    border-right: 2px solid white;
+    animation: typewriter 14s steps(20) 1s 1 normal both,
+    textCursor 500ms steps(20) infinite;
+    overflow: hidden;
+}
+
+@keyframes typewriter {
+    0% {width: 0; border-right: none;}
+    86% {width: 0; border-right: none;}
+    87% {border-right: 2px solid white;}
+    100% {width: 32rem;}
+}
+
+@keyframes textCursor {
+    from{
+        border-right-color: white;
+    }
+    to{
+        border-right-color: #060606;
+    }
 }

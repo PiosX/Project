@@ -39,6 +39,7 @@
                 </div>
             </div>
         </div>
+        <h1 class="typewrite">WELCOME</h1>
     </div>
     <div class="second-container">
 

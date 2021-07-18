@@ -21,6 +21,7 @@ class ComposerStaticInit2863d80dafeda3eb664fc8412ce9ffb0
     );
 
     public static $classMap = array (
+        'CLasses\\Model\\UserFunction' => __DIR__ . '/../..' . '/App/Classes/Model/userFunction.php',
         'Classes\\Config\\Dbh' => __DIR__ . '/../..' . '/App/Classes/Config/dbh_connection.php',
         'Classes\\Controller\\UsersContr' => __DIR__ . '/../..' . '/App/Classes/Controller/userscontr.php',
         'Classes\\Model\\Users' => __DIR__ . '/../..' . '/App/Classes/Model/users.php',
