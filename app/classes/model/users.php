@@ -157,19 +157,33 @@ use PDOException;
             $sql = "SELECT * FROM users";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
-            
             if($stmt->rowCount()>0)
             {
                 while($row = $stmt->fetch())
                 {
                     if($row['login'] == $_SESSION['login'])
                     {
-                        echo "<li><a href='' id='me'>".$row['login']."</a></li>";
+                        echo "<li><a href='profile.php?profile=".$row['login']."' id='me'>".$row['login']."</a></li>";
                     }else
                     {
-                        echo "<li><a href=''>".$row['login']."</a></li>";
-                    }
-                    
+                        echo "<li><a href='profile.php?profile=".$row['login']."'>".$row['login']."</a></li>";
+                    }     
+                }
+            }
+        }
+
+        protected function getUserName()
+        {
+            $log = $_GET['profile'];
+            $sql = "SELECT * FROM users WHERE login = '$log'";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    echo $row['login'];
                 }
             }
         }

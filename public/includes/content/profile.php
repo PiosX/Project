@@ -7,6 +7,7 @@ require ('../../../vendor/autoload.php');
         $logout = new \Classes\Model\Users();
         $logout->logout('../../index.php?action=logout');
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,13 +27,18 @@ require ('../../../vendor/autoload.php');
         <a href="">Informations</a>
         <a href="chat.php">Chat</a>
         <a href="">Forum</a>
-        <a href="profile.php" id="actual">Profile</a>
+        <a href="profile.php?profile=<?php echo $_SESSION['login'] ?>" id="actual">Profile</a>
         <button id="homeLog" onclick="location.href='?action=logout'">Logout</button>     
     </div>
     <div class="mid-container">
         <div id="profile-data">
             <div id="profile">
-                <p id="profile-name"><?php echo $_SESSION['login'] ?></p>
+                <p id="profile-name">
+                    <?php 
+                        $username = new \Classes\View\UsersView();
+                        $username->showUserName();
+                    ?>
+                </p>
             </div>
             <div id="profile-avatar">
                 <div id="profile-image">
@@ -40,13 +46,23 @@ require ('../../../vendor/autoload.php');
                 </div>
                 <?php if(isset($_SESSION['email']) && isset($_SESSION['login']))
                         {
+                            if($_GET['profile'] == $_SESSION['login'])
+                            {
                 ?>
-                    <button id="profile-edit" onclick="showBut()">Edit Profile</button>
-                    <input id="save-changes" type="submit" name="upload-changes" value="Save" onclick="showBut()">
-                <?php   } ?>
+                                <button id="profile-edit" onclick="showBut()">Edit Profile</button>
+                                <input id="save-changes" type="submit" name="upload-changes" value="Save" onclick="showBut()">
+                <?php   
+                            }
+                        }    
+                ?>
             </div> 
             <div id="profile-stats">
-
+                <div id="watch">
+                    <p>Watchers: </p>
+                </div>
+                <div id="posts">
+                    <p>Posts: </p>
+                </div>
             </div>
         </div>
     </div>

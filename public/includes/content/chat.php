@@ -2,6 +2,7 @@
 session_start();
 require ('../../../vendor/autoload.php'); 
     $users = new \Classes\View\UsersView();
+    @$log = $_GET['profile'];
 
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
     {
@@ -27,17 +28,22 @@ require ('../../../vendor/autoload.php');
         <a href="">Informations</a>
         <a href="chat.php" id="actual">Chat</a>
         <a href="">Forum</a>
-        <a href="profile.php">Profile</a>
+        <a href="profile.php?profile=<?php echo $_SESSION['login'] ?>">Profile</a>
         <button id="homeLog" onclick="location.href='?action=logout'">Logout</button>     
     </div>
     <div class="mid-container">
         <div id="users-cont">
             <div id="users-top">
-                <p>Users: </p>
+                <p>Users(<?php echo $users->countUsers(); ?>): </p>
             </div>
             <ul>
-                <?php $users->showAllUsers(); ?>
+                <?php
+                    $users->showAllUsers();
+                ?>
             </ul>
+        </div>
+        <div id="chat-cont">
+
         </div>
     </div>
 </body>
