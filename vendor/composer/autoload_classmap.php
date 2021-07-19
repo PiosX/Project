@@ -6,9 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CLasses\\Model\\UserFunction' => $baseDir . '/App/Classes/Model/userFunction.php',
     'Classes\\Config\\Dbh' => $baseDir . '/App/Classes/Config/dbh_connection.php',
     'Classes\\Controller\\UsersContr' => $baseDir . '/App/Classes/Controller/userscontr.php',
     'Classes\\Model\\Users' => $baseDir . '/App/Classes/Model/users.php',
+    'Classes\\View\\UsersView' => $baseDir . '/App/Classes/View/usersview.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

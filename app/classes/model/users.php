@@ -151,4 +151,26 @@ use PDOException;
             unset($_SESSION['login']);
             header("Location:$location");
         }
+
+        protected function getAllUsers()
+        {
+            $sql = "SELECT * FROM users";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+            
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    if($row['login'] == $_SESSION['login'])
+                    {
+                        echo "<li><a href='' id='me'>".$row['login']."</a></li>";
+                    }else
+                    {
+                        echo "<li><a href=''>".$row['login']."</a></li>";
+                    }
+                    
+                }
+            }
+        }
     }
