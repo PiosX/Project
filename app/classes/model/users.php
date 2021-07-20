@@ -96,7 +96,7 @@ use PDOException;
                             $this->createUserSession($email);
                             if(isset($_SESSION['email']))
                             {
-                                header("Location:content/profile.php");
+                                header("Location:content/profile.php?profile=".$_SESSION['login']."");
                             }
                         }
                         else

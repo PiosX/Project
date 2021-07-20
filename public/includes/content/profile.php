@@ -64,6 +64,9 @@ require ('../../../vendor/autoload.php');
                     <p>Posts: </p>
                 </div>
             </div>
+            <div id="profile-activ">
+                
+            </div>
         </div>
     </div>
 </body>

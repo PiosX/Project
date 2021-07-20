@@ -43,7 +43,18 @@ require ('../../../vendor/autoload.php');
             </ul>
         </div>
         <div id="chat-cont">
+            <div id="send-to">
+                <p>UserName</p>
+            </div>
+            <div id="mess-cont">
 
+            </div>
+            <div id="mess-send">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <textarea name="message" cols="60" rows="5" wrap="hard"></textarea>
+                    <input type="submit" name="message-sub" id="message-sub" value="Send">
+                </form>
+            </div>
         </div>
     </div>
 </body>

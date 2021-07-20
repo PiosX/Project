@@ -191,11 +191,20 @@ body{
     width: 200px;
     float: left;
     position: relative;
-    left: 30%;
+    left: 35%;
     font-size: 20px;
     color: #ffff0f;
 }
 
 #posts p{
     line-height: 15px;
+}
+
+#profile-activ{
+    width: 70%;
+    height: 500px;
+    background-color: #282828;
+    position: relative;
+    left: 22%;
+    top: 10%;
 }
