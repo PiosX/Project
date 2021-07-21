@@ -166,14 +166,14 @@ use PDOException;
                         echo "<li><a href='profile.php?profile=".$row['login']."' id='me'>".$row['login']."</a></li>";
                     }else
                     {
-                        echo "<li><a href='profile.php?profile=".$row['login']."'>".$row['login']."</a></li>";
-                    }     
+                        echo "<li><a href='chat.php?user=".$row['login']."' id='users-ch' onclick='showList()'>".$row['login']."</a></li>";
+                    }   
                 }
             }
         }
 
         protected function getUserName()
-        {
+        {    
             $log = $_GET['profile'];
             $sql = "SELECT * FROM users WHERE login = '$log'";
             $stmt = $this->connect()->prepare($sql);
@@ -185,6 +185,36 @@ use PDOException;
                 {
                     echo $row['login'];
                 }
+            }
+            
+        }
+
+        protected function getChatUser()
+        {
+            $log = $_GET['user'];
+            $sql = "SELECT * FROM users WHERE login = '$log'";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    echo "<a href='profile.php?profile=".$_GET['user']."'>".$row['login']."</a>";
+                }
+            }
+        }
+        protected function checkUser()
+        {
+            $stmt = $this->connect()->prepare("SELECT login FROM users");
+            $stmt->execute();
+            while($row = $stmt->fetch())
+            {
+                $loginArr[] = $row['login'];
+            }
+            if(!in_array($_GET['profile'], $loginArr))
+            {
+                header("Location:profile.php?profile=".$_SESSION['login']."");
             }
         }
     }

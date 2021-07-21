@@ -134,6 +134,15 @@ body{
     color: #ffff0f;
 }
 
+#send-to a{
+    color: white;
+    text-decoration: none;
+}
+
+#send-to a:hover{
+    color: #e91e63;
+}
+
 #mess-cont{
     width: 95%;
     height: 550px;
@@ -156,6 +165,7 @@ textarea{
     background-color: #555555;
     font-size: 16px;
     color: white;
+    resize: none;
 }
 
 form #message-sub{
@@ -174,4 +184,15 @@ form #message-sub{
     background-color: #e91e63;
     color: white;
     border: 1px solid #e91e63;
+}
+
+#opList{
+    background-color: #555555;
+    color: white;
+    width: 120px;
+    display: none;
+}
+
+#opList li a:hover{
+    color: #e91e63;
 }

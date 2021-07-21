@@ -1,6 +1,8 @@
 <?php
 session_start();
 require ('../../../vendor/autoload.php'); 
+$username = new \Classes\View\UsersView();
+$username->checkUserName();
 
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
     {
@@ -35,7 +37,6 @@ require ('../../../vendor/autoload.php');
             <div id="profile">
                 <p id="profile-name">
                     <?php 
-                        $username = new \Classes\View\UsersView();
                         $username->showUserName();
                     ?>
                 </p>
@@ -53,7 +54,13 @@ require ('../../../vendor/autoload.php');
                                 <input id="save-changes" type="submit" name="upload-changes" value="Save" onclick="showBut()">
                 <?php   
                             }
-                        }    
+                            else
+                            {  
+                ?>
+                                <input type="submit" name="watch-sub" id="watch-sub" value="Watch">
+                <?php
+                            }
+                        }
                 ?>
             </div> 
             <div id="profile-stats">

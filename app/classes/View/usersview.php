@@ -18,5 +18,13 @@
             $stmt->execute();
             return $stmt->rowCount();
         }
+        public function showChatUser()
+        {
+            $result = $this->getChatUser();
+        }
+        public function checkUserName()
+        {
+            $result = $this->checkUser();
+        }
     }
 ?>

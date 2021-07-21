@@ -40,11 +40,16 @@ require ('../../../vendor/autoload.php');
                 <?php
                     $users->showAllUsers();
                 ?>
+                <ul id="opList"">
+                    <li><a href="">Opt1</a></li>
+                    <li><a href="">Opt2</a></li>
+                </ul>
             </ul>
         </div>
+        <?php if(isset($_GET['user'])){ ?>
         <div id="chat-cont">
             <div id="send-to">
-                <p>UserName</p>
+                <p>Chat with: <span><?php echo $users->showChatUser(); ?></span></p>
             </div>
             <div id="mess-cont">
 
@@ -56,6 +61,7 @@ require ('../../../vendor/autoload.php');
                 </form>
             </div>
         </div>
+        <?php } ?>
     </div>
 </body>
 </html>
