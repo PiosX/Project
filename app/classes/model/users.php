@@ -223,9 +223,24 @@ use PDOException;
             $log = $_GET['profile'];
             if(isset($_POST['confirm']))
             {
-                $sql = "INSERT INTO check_status(login,set_to,check_status) VALUES('$login','$log',1)";
-                $stmt = $this->connect()->prepare($sql);
+                $stmt = $this->connect()->prepare("SELECT * FROM check_status WHERE login = '$login' AND set_to = '$log';");
                 $stmt->execute();
+                if($stmt->rowCount()>1)
+                {
+
+                }
+                else if($stmt->rowCount()==0)
+                {
+                    $sql = "INSERT INTO check_status(login,set_to,check_status) VALUES('$login','$log',1);UPDATE user_stats SET watchers = watchers + 1 WHERE login = '$log';";
+                    $stmt = $this->connect()->prepare($sql);
+                    $stmt->execute();
+                }
+                else if($stmt->rowCount()==1)
+                {
+                    $sql = "UPDATE check_status SET check_status = 1 WHERE login = '$login' AND set_to = '$log' AND check_status = 0;UPDATE user_stats SET watchers = watchers + 1 WHERE login = '$log';";
+                    $stmt = $this->connect()->prepare($sql);
+                    $stmt->execute();
+                }     
             }
             $sql = "SELECT check_status FROM check_status WHERE login = '$login' AND set_to='$log' AND check_status=1";
             $stmt = $this->connect()->prepare($sql);
@@ -241,10 +256,14 @@ use PDOException;
             }
             if(isset($_POST['watch-unsub']))
             {
-                $sql = "DELETE FROM check_status WHERE login = '$login' AND set_to = '$log' AND check_status = 1";
+                $sql = "UPDATE check_status SET check_status = 0 WHERE login = '$login' AND set_to = '$log' AND check_status = 1;UPDATE user_stats SET watchers = watchers - 1 WHERE login = '$log';";
                 $stmt = $this->connect()->prepare($sql);
                 $stmt->execute();
                 header("Refresh:0");
             }
+        }
+        protected function setWatchersCount()
+        {
+            $sql = "";
         }
     }

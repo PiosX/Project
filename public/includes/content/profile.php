@@ -72,10 +72,10 @@ $username->checkUserName();
             </div> 
             <div id="profile-stats">
                 <div id="watch">
-                    <p>Watchers: </p>
+                    <p>Watchers: <span></span></p>
                 </div>
                 <div id="posts">
-                    <p>Posts: </p>
+                    <p>Posts: <span></span></p>
                 </div>
             </div>
             <div id="profile-activ">

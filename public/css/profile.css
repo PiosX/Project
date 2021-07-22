@@ -215,12 +215,17 @@ body{
     position: relative;
     left: 30%;
     float: left;
-    font-size: 20px;
+    font-size: 18px;
     color: #ffff0f;
 }
 
 #watch p{
     line-height: 15px;
+}
+
+#profile-stats span{
+    color: #00ffff;
+    font-size: 18px;
 }
 
 #posts{
@@ -229,7 +234,7 @@ body{
     float: left;
     position: relative;
     left: 35%;
-    font-size: 20px;
+    font-size: 18px;
     color: #ffff0f;
 }
 
