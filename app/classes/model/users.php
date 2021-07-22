@@ -262,8 +262,32 @@ use PDOException;
                 header("Refresh:0");
             }
         }
-        protected function setWatchersCount()
+        protected function getWatchersNumber()
         {
-            $sql = "";
+            $log = $_GET['profile'];
+            $sql = "SELECT watchers FROM user_stats WHERE login = '$log';";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    echo $row['watchers'];
+                }
+            }
+        }
+        protected function getPostsNumber()
+        {
+            $log = $_GET['profile'];
+            $sql = "SELECT posts FROM user_stats WHERE login = '$log';";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    echo $row['posts'];
+                }
+            }
         }
     }

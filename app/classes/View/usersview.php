@@ -30,5 +30,13 @@
         {
             $result = $this->watchUser();
         }
+        public function showWatchersNumber()
+        {
+            $result = $this->getWatchersNumber();
+        }
+        public function showPostsNumber()
+        {
+            $result = $this->getPostsNumber();
+        }
     }
 ?>
