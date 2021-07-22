@@ -286,6 +286,8 @@ body{
     color: #ff2222;
     cursor: pointer;
     margin-right: 30px;
+    float: left;
+    margin-left: 60px;
 }
 
 #confirm-but{
@@ -293,6 +295,7 @@ body{
     border-radius: 2px;
     color: #2196f3;
     cursor: pointer;
+    float: left;
 }
 
 #cancel-but:hover{

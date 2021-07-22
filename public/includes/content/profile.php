@@ -28,7 +28,10 @@ $username->checkUserName();
         <div id="confirm">
             <p>Confirm Watch</p>
             <input type="submit" name="cancel" id="cancel-but" onclick="checkWatch()" value="Cancel" />
-            <input type="submit" name="confirm" id="confirm-but" onclick="checkWatch()" value="Confirm" />
+            <form action="" method="POST">
+                <input type="submit" name="confirm" id="confirm-but" onclick="checkWatch()" value="Confirm" />
+            </form>
+            
         </div>
     </div>
     <div class="top-container">
@@ -62,9 +65,7 @@ $username->checkUserName();
                             }
                             else
                             {  
-                ?> 
-                                <input type="submit" name="watch-unsub" id="watch-sub" onclick="checkWatch()" value="Watch">
-                <?php 
+                                $username->watchingUser();
                             }
                         }
                 ?>

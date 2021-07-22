@@ -217,4 +217,34 @@ use PDOException;
                 header("Location:profile.php?profile=".$_SESSION['login']."");
             }
         }
+        protected function watchUser()
+        {
+            $login = $_SESSION['login'];
+            $log = $_GET['profile'];
+            if(isset($_POST['confirm']))
+            {
+                $sql = "INSERT INTO check_status(login,set_to,check_status) VALUES('$login','$log',1)";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+            }
+            $sql = "SELECT check_status FROM check_status WHERE login = '$login' AND set_to='$log' AND check_status=1";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+            if($stmt->rowCount()>0)
+            {
+                echo "<form action='' method='POST'>";
+                    echo "<input type='submit' name='watch-unsub' id='watch-unsub' value='Watched &#10003'>";
+                echo "</form>";
+            }else
+            {
+                echo "<input type='submit' name='watch-sub' id='watch-sub' onclick='checkWatch()' value='Watch'>";  
+            }
+            if(isset($_POST['watch-unsub']))
+            {
+                $sql = "DELETE FROM check_status WHERE login = '$login' AND set_to = '$log' AND check_status = 1";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+                header("Refresh:0");
+            }
+        }
     }

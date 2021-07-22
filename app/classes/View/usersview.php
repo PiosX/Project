@@ -26,5 +26,9 @@
         {
             $result = $this->checkUser();
         }
+        public function watchingUser()
+        {
+            $result = $this->watchUser();
+        }
     }
 ?>
