@@ -54,3 +54,19 @@ function switchReg()
         reg_inf.style.display = "none";
     }
 }
+
+function checkWatch()
+{
+    var but = document.getElementById("confirm-cont");
+
+    if (!but.style.display || but.style.display == "none")
+    {
+        but.style.display="block";
+        check = 'f';
+    } 
+    else
+    {
+        but.style.display="none";
+        check = 't';
+    }
+}

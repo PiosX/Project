@@ -9,7 +9,6 @@ $username->checkUserName();
         $logout = new \Classes\Model\Users();
         $logout->logout('../../index.php?action=logout');
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +24,13 @@ $username->checkUserName();
     <script src="../../javascript/log_panel.js"></script>
 </head>
 <body>
+    <div id="confirm-cont">
+        <div id="confirm">
+            <p>Confirm Watch</p>
+            <input type="submit" name="cancel" id="cancel-but" onclick="checkWatch()" value="Cancel" />
+            <input type="submit" name="confirm" id="confirm-but" onclick="checkWatch()" value="Confirm" />
+        </div>
+    </div>
     <div class="top-container">
         <a href="">Informations</a>
         <a href="chat.php">Chat</a>
@@ -56,9 +62,9 @@ $username->checkUserName();
                             }
                             else
                             {  
-                ?>
-                                <input type="submit" name="watch-sub" id="watch-sub" value="Watch">
-                <?php
+                ?> 
+                                <input type="submit" name="watch-unsub" id="watch-sub" onclick="checkWatch()" value="Watch">
+                <?php 
                             }
                         }
                 ?>
