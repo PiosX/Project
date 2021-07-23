@@ -35,7 +35,7 @@ body{
 
 #homeLog{
     position: absolute;
-    right: 5%;
+    right: 2%;
     margin-top: 20px;
     padding: 15px 25px 15px 25px;
     margin-left: 60%;
@@ -215,4 +215,16 @@ form #message-sub{
     border-radius: 80px;
     margin-top: 5px;
     margin-left: 10px;
+}
+
+#avatar{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    float: right;
+    margin-right: 10%;
+    position: relative;
+    top: 30%;
+    transform: translate(-50%);
+    border-radius: 50%;
 }

@@ -329,4 +329,52 @@ use PDOException;
                 }
             }
         }
+        protected function setAvatar()
+        {
+            $login = $_SESSION['login'];
+            if(isset($_POST['submit-av']))
+            {
+                if(!empty($_FILES['avatar-image']['name']))
+                {
+                    define("MB", 1048576);
+                    if($_FILES['avatar-image']['size'] < 5*MB)
+                    {
+                        $fileName = basename($_FILES['avatar-image']['name']);
+                        $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+                        
+                        $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+
+                        if(in_array($fileType,$allowedTypes))
+                        {
+                            $image = $_FILES['avatar-image']['name'];
+                            $encImage = md5(rand()*rand()+rand()).$image;
+
+                            if(move_uploaded_file($_FILES['avatar-image']['tmp_name'], "../../images/".$encImage))
+                            {
+                                $sql = "Select image FROM users WHERE login = '$login'";
+                                $stmt = $this->connect()->prepare($sql);
+                                $stmt->execute();
+
+                                if($stmt->rowCount() == 0 || $stmt->rowCount()>0)
+                                {
+                                    $sql = "INSERT INTO users(image) VALUES('$encImage')";
+                                    $stmt = $this->connect()->prepare($sql);
+                                    $stmt->execute();
+
+                                    header("Refresh: 0");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            echo "Sorry, only JPG, JPEG, PNG OR GIF are allowed to upload.";
+                        }
+                    }
+                    else
+                    {
+                        echo "Sorry, your image is too big!";
+                    }
+                }
+            }
+        }
     }

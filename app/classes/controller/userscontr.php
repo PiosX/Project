@@ -17,4 +17,9 @@ namespace Classes\Controller;
         {
             $this->setMessage($message);
         }
+
+        public function setAvatarImage()
+        {
+            $this->setAvatar();
+        }
     }

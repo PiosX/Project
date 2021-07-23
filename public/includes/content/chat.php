@@ -30,6 +30,9 @@ require ('../../../vendor/autoload.php');
         <a href="chat.php" id="actual">Chat</a>
         <a href="">Forum</a>
         <a href="profile.php?profile=<?php echo $_SESSION['login'] ?>">Profile</a>
+        <div id="avatar">
+            <img src="" />
+        </div>
         <button id="homeLog" onclick="location.href='?action=logout'">Logout</button>     
     </div>
     <div class="mid-container">
@@ -57,11 +60,11 @@ require ('../../../vendor/autoload.php');
             </div>
             <div id="mess-send">
                 <form action="" method="POST" enctype="multipart/form-data">
-                    <textarea name="message" cols="60" rows="5" wrap="hard"></textarea>
+                    <textarea name="message" cols="52" rows="5" wrap="hard"></textarea>
                     <input type="submit" name="message-sub" id="message-sub" value="Send">
                 </form>
                 <?php 
-                    $message = $_POST['message'];
+                    @$message = $_POST['message'];
                     $mess->sendMessage($message);
                 ?>
             </div>
@@ -70,3 +73,7 @@ require ('../../../vendor/autoload.php');
     </div>
 </body>
 </html>
+<script> 
+    var myDiv = document.getElementById("mess-cont");
+    myDiv.scrollTop = myDiv.scrollHeight+100;
+</script>

@@ -3,6 +3,8 @@ session_start();
 require ('../../../vendor/autoload.php'); 
 $username = new \Classes\View\UsersView();
 $username->checkUserName();
+$avatar = new \Classes\Controller\UsersContr();
+$avatar->setAvatarImage();
 
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
     {
@@ -39,6 +41,9 @@ $username->checkUserName();
         <a href="chat.php">Chat</a>
         <a href="">Forum</a>
         <a href="profile.php?profile=<?php echo $_SESSION['login'] ?>" id="actual">Profile</a>
+        <div id="avatar">
+            <img src="" />
+        </div>
         <button id="homeLog" onclick="location.href='?action=logout'">Logout</button>     
     </div>
     <div class="mid-container">
@@ -52,7 +57,7 @@ $username->checkUserName();
             </div>
             <div id="profile-avatar">
                 <div id="profile-image">
-                    <input id="upload-image" type="file" name="image">
+                    <input id="upload-image" type="file" name="avatar-image">
                 </div>
                 <?php if(isset($_SESSION['email']) && isset($_SESSION['login']))
                         {
@@ -60,7 +65,10 @@ $username->checkUserName();
                             {
                 ?>
                                 <button id="profile-edit" onclick="showBut()">Edit Profile</button>
-                                <input id="save-changes" type="submit" name="upload-changes" value="Save" onclick="showBut()">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    <input id="save-changes" type="submit-av" name="upload-changes" value="Save" onclick="showBut()">
+                                </form>
+                                
                 <?php   
                             }
                             else
