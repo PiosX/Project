@@ -38,5 +38,9 @@
         {
             $result = $this->getPostsNumber();
         }
+        public function showMessages()
+        {
+            $result = $this->getMessages();
+        }
     }
 ?>

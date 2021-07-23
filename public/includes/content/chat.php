@@ -2,6 +2,7 @@
 session_start();
 require ('../../../vendor/autoload.php'); 
     $users = new \Classes\View\UsersView();
+    $mess = new \Classes\Controller\UsersContr();
     @$log = $_GET['profile'];
 
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
@@ -52,13 +53,17 @@ require ('../../../vendor/autoload.php');
                 <p>Chat with: <span><?php echo $users->showChatUser(); ?></span></p>
             </div>
             <div id="mess-cont">
-
+                <?php $users->showMessages(); ?>
             </div>
             <div id="mess-send">
                 <form action="" method="POST" enctype="multipart/form-data">
                     <textarea name="message" cols="60" rows="5" wrap="hard"></textarea>
                     <input type="submit" name="message-sub" id="message-sub" value="Send">
                 </form>
+                <?php 
+                    $message = $_POST['message'];
+                    $mess->sendMessage($message);
+                ?>
             </div>
         </div>
         <?php } ?>

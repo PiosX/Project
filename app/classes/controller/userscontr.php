@@ -12,4 +12,9 @@ namespace Classes\Controller;
         {
             $this->getUser($email,$password);
         }
+
+        public function sendMessage($message)
+        {
+            $this->setMessage($message);
+        }
     }

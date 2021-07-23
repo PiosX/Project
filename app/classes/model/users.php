@@ -290,4 +290,43 @@ use PDOException;
                 }
             }
         }
+        protected function setMessage($message)
+        {
+            $log = $_GET['user']; 
+            $login = $_SESSION['login'];
+            $message = addslashes($message);
+            if(isset($_POST['message-sub']))
+            {
+                if(isset($_POST['message']) && $_POST['message'] != '')
+                {
+                    $sql = "INSERT INTO messages(send_by,send_to,message) VALUES('$login','$log', '$message')";
+                    $stmt = $this->connect()->prepare($sql);
+                    $stmt->execute();
+                }        
+            }
+        }
+        protected function getMessages()
+        {
+            $log = $_GET['user']; 
+            $login = $_SESSION['login'];
+
+            $sql = "SELECT * FROM messages WHERE (send_by = '$login' AND send_to = '$log') OR (send_by = '$log' AND send_to = '$login')";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    if($row['send_by'] == $login)
+                    {
+                        echo "<div id='my-mess'>".$row['message']."</div>";
+                    }
+                    else
+                    {
+                        echo "<div id='ur-mess'>".$row['message']."</div>";
+                    }
+                }
+            }
+        }
     }

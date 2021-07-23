@@ -148,6 +148,7 @@ body{
     height: 550px;
     margin: auto;
     background-color: #262626;
+    overflow: auto;
 }
 
 #mess-send{
@@ -195,4 +196,23 @@ form #message-sub{
 
 #opList li a:hover{
     color: #e91e63;
+}
+
+#my-mess{
+    max-width: 35%;
+    width: fit-content;
+    background-color: #11ACDD;
+    padding: 5px;
+    border-radius: 80px;
+    margin:5px 10px auto auto;
+}
+
+#ur-mess{
+    max-width: 35%;
+    width: fit-content;
+    background-color: #ff5722;
+    padding: 5px;
+    border-radius: 80px;
+    margin-top: 5px;
+    margin-left: 10px;
 }
