@@ -387,4 +387,36 @@ use PDOException;
                 echo "PLease select an image to upload!";
             }
         }
+        protected function getAvatar()
+        {
+            $log = $_GET['profile'];
+
+            $sql = "SELECT * from avatars WHERE login = '$log'";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    echo "<img src='../../images/".$row['image']."' width='170px' height='170px'>";
+                }
+            }
+        }
+        protected function getTinyAvatar($path)
+        {
+            $login = $_SESSION['login'];
+
+            $sql = "SELECT * FROM avatars WHERE login = '$login'";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    echo "<a href='profile.php?profile=".$login."' id='avatarHref'><img src='".$path.$row['image']."' width='40px' height='40px' id='tinyAvatar'></a>";
+                }
+            }
+        }
     }

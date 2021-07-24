@@ -70,9 +70,3 @@ function checkWatch()
         check = 't';
     }
 }
-
-function unwatch()
-{
-    var sub = document.getElementById("");
-    var unsub = document.getElementById("");
-}

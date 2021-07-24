@@ -41,7 +41,9 @@ $avatar = new \Classes\Controller\UsersContr();
         <a href="">Forum</a>
         <a href="profile.php?profile=<?php echo $_SESSION['login'] ?>" id="actual">Profile</a>
         <div id="avatar">
-            <img src="" />
+            <?php
+                $username->showTinyAvatar("../../images/");
+            ?>
         </div>
         <button id="homeLog" onclick="location.href='?action=logout'">Logout</button>     
     </div>
@@ -56,7 +58,9 @@ $avatar = new \Classes\Controller\UsersContr();
             </div>
             <div id="profile-avatar">
                 <div id="profile-image">
-                    
+                    <?php
+                        $username->showAvatar();
+                    ?>
                 </div>
                 <?php if(isset($_SESSION['email']) && isset($_SESSION['login']))
                         {

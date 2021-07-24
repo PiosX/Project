@@ -42,5 +42,13 @@
         {
             $result = $this->getMessages();
         }
+        public function showAvatar()
+        {
+            $result = $this->getAvatar();
+        }
+        public function showTinyAvatar($path)
+        {
+            $this->getTinyAvatar($path);
+        }
     }
 ?>

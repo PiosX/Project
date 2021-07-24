@@ -227,4 +227,16 @@ form #message-sub{
     top: 30%;
     transform: translate(-50%);
     border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ffff0f;
+}
+
+#avatarHref{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#tinyAvatar{
+    position: absolute;
 }

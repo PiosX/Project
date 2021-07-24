@@ -31,7 +31,9 @@ require ('../../../vendor/autoload.php');
         <a href="">Forum</a>
         <a href="profile.php?profile=<?php echo $_SESSION['login'] ?>">Profile</a>
         <div id="avatar">
-            <img src="" />
+            <?php
+                $users->showTinyAvatar("../../images/");
+            ?>
         </div>
         <button id="homeLog" onclick="location.href='?action=logout'">Logout</button>     
     </div>
