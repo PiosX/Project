@@ -103,16 +103,6 @@ body{
     overflow: hidden;
 }
 
-#profile-image input{
-    position: relative;
-    font-size: 14px;
-    top: 50%;
-    left: 100%;
-    transform: translate(-50%,-50%);
-    padding: 10px;
-    display: none;
-}
-
 #watch-sub{
     margin-top: 30px;
     padding: 5px 15px 5px 15px;
@@ -206,6 +196,13 @@ body{
 
 #upload-image[type='file']{
     color: transparent;
+}
+
+#upload-image{
+    position: absolute;
+    top: 35%;
+    left: 28%;
+    display: none;
 }
 
 #watch{

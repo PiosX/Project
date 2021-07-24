@@ -4,7 +4,6 @@ require ('../../../vendor/autoload.php');
 $username = new \Classes\View\UsersView();
 $username->checkUserName();
 $avatar = new \Classes\Controller\UsersContr();
-$avatar->setAvatarImage();
 
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
     {
@@ -57,7 +56,7 @@ $avatar->setAvatarImage();
             </div>
             <div id="profile-avatar">
                 <div id="profile-image">
-                    <input id="upload-image" type="file" name="avatar-image">
+                    
                 </div>
                 <?php if(isset($_SESSION['email']) && isset($_SESSION['login']))
                         {
@@ -66,10 +65,14 @@ $avatar->setAvatarImage();
                 ?>
                                 <button id="profile-edit" onclick="showBut()">Edit Profile</button>
                                 <form action="" method="POST" enctype="multipart/form-data">
-                                    <input id="save-changes" type="submit-av" name="upload-changes" value="Save" onclick="showBut()">
-                                </form>
-                                
+                                    <input id="upload-image" type="file" name="image">
+                                    <input id="save-changes" type="submit" name="upload-changes" value="Save"">
+                                </form>                  
                 <?php   
+                                if(isset($_POST['upload-changes']))
+                                {
+                                    $avatar->setAvatarImage();
+                                }
                             }
                             else
                             {  

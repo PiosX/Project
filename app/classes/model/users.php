@@ -332,49 +332,59 @@ use PDOException;
         protected function setAvatar()
         {
             $login = $_SESSION['login'];
-            if(isset($_POST['submit-av']))
+
+            if(!empty($_FILES["image"]["name"]))
             {
-                if(!empty($_FILES['avatar-image']['name']))
+                define("MB", 1048576);
+                if($_FILES['image']['size'] < 5*MB)
                 {
-                    define("MB", 1048576);
-                    if($_FILES['avatar-image']['size'] < 5*MB)
+                    $fileName = basename($_FILES['image']['name']);
+                    $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+                    $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+                    if(in_array($fileType, $allowedTypes))
                     {
-                        $fileName = basename($_FILES['avatar-image']['name']);
-                        $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-                        
-                        $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
-
-                        if(in_array($fileType,$allowedTypes))
+                        $image = $_FILES['image']['name'];
+                        $encImage = md5(rand()*rand()+rand()).$image;
+                    
+                        if(move_uploaded_file($_FILES['image']['tmp_name'],"../../images/".$encImage))
                         {
-                            $image = $_FILES['avatar-image']['name'];
-                            $encImage = md5(rand()*rand()+rand()).$image;
-
-                            if(move_uploaded_file($_FILES['avatar-image']['tmp_name'], "../../images/".$encImage))
+                            $stmt = $this->connect()->prepare("SELECT * FROM avatars WHERE login = '$login'");
+                            $stmt->execute();
+                            if($stmt->rowCount()>0)
                             {
-                                $sql = "Select image FROM users WHERE login = '$login'";
-                                $stmt = $this->connect()->prepare($sql);
+                                $stmt = $this->connect()->prepare("UPDATE avatars SET image = '$encImage' WHERE login = '$login'");
                                 $stmt->execute();
 
-                                if($stmt->rowCount() == 0 || $stmt->rowCount()>0)
-                                {
-                                    $sql = "INSERT INTO users(image) VALUES('$encImage')";
-                                    $stmt = $this->connect()->prepare($sql);
-                                    $stmt->execute();
-
-                                    header("Refresh: 0");
-                                }
+                                header("Refresh: 0");
                             }
-                        }
+                            else if($stmt->rowCount()==0)
+                            {
+                                $stmt = $this->connect()->prepare("INSERT INTO avatars(login,image) VALUES('$login', '$encImage')");
+                                $stmt->execute();
+                                
+                                header("Refresh: 0");
+                            }
+                            
+                        } 
                         else
                         {
-                            echo "Sorry, only JPG, JPEG, PNG OR GIF are allowed to upload.";
+                            echo "Nie udalo sie.";
                         }
                     }
                     else
                     {
-                        echo "Sorry, your image is too big!";
+                        echo "Sorry, only JPG, JPEG, PNG OR GIF are allowed to upload.";
                     }
                 }
+                else
+                {
+                    echo "File is too big!";
+                }
+            }
+            else
+            {
+                echo "PLease select an image to upload!";
             }
         }
     }
