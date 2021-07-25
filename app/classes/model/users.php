@@ -419,4 +419,21 @@ use PDOException;
                 }
             }
         }
+        protected function getYourWatchers()
+        {
+            $login = $_SESSION['login'];
+            @$log = $_GET['user'];
+
+            $sql = "SELECT * FROM check_status WHERE login = '$login'";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    echo "<li><a href='chat.php?user=".$row['set_to']."' id='users-ch'>".$row['set_to']."</a></li>";
+                }
+            }
+        }
     }

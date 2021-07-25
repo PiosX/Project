@@ -50,5 +50,17 @@
         {
             $this->getTinyAvatar($path);
         }
+        public function showYourWatchers()
+        {
+            $this->getYourWatchers();
+        }
+        public function countWatchers()
+        {
+            $login = $_SESSION['login'];
+            $sql = "SELECT * FROM check_status WHERE login = '$login'";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+            return $stmt->rowCount();
+        }
     }
 ?>

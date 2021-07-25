@@ -4,6 +4,7 @@ require ('../../../vendor/autoload.php');
     $users = new \Classes\View\UsersView();
     $mess = new \Classes\Controller\UsersContr();
     @$log = $_GET['profile'];
+    @$log2 = $_GET['user']; 
 
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
     {
@@ -23,6 +24,12 @@ require ('../../../vendor/autoload.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded&display=swap" rel="stylesheet">
     <script src="../../javascript/log_panel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var auto_refresh = setInterval(function(){
+            $('#mess-cont').load('other_includes/chatRefresh.php?user=<?php echo $log2 ?>'); return false;
+        }, 1000);
+    </script>
 </head>
 <body>
     <div class="top-container">
@@ -40,11 +47,11 @@ require ('../../../vendor/autoload.php');
     <div class="mid-container">
         <div id="users-cont">
             <div id="users-top">
-                <p>Users(<?php echo $users->countUsers(); ?>): </p>
+                <p>Watchers(<?php echo $users->countWatchers(); ?>): </p>
             </div>
             <ul>
                 <?php
-                    $users->showAllUsers();
+                    $users->showYourWatchers();
                 ?>
                 <ul id="opList"">
                     <li><a href="">Opt1</a></li>
