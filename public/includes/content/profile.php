@@ -4,12 +4,13 @@ require ('../../../vendor/autoload.php');
 $username = new \Classes\View\UsersView();
 $username->checkUserName();
 $avatar = new \Classes\Controller\UsersContr();
+$logout = new \Classes\Model\Users();
 
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
-    {
-        $logout = new \Classes\Model\Users();
+    {  
         $logout->logout('../../index.php?action=logout');
     }
+$logout->deleteSessionAFK();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +33,6 @@ $avatar = new \Classes\Controller\UsersContr();
             <form action="" method="POST">
                 <input type="submit" name="confirm" id="confirm-but" onclick="checkWatch()" value="Confirm" />
             </form>
-            
         </div>
     </div>
     <div class="top-container">

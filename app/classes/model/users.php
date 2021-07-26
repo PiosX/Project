@@ -97,6 +97,10 @@ use PDOException;
                             if(isset($_SESSION['email']))
                             {
                                 header("Location:content/profile.php?profile=".$_SESSION['login']."");
+                                $login = $_SESSION['login'];
+                                $sql = "INSERT INTO online_users(login) VALUES('$login')";
+                                $stmt = $this->connect()->prepare($sql);
+                                $stmt->execute();
                             }
                         }
                         else
@@ -146,10 +150,31 @@ use PDOException;
 
         public function logout($location)
         {
+            $login = $_SESSION['login'];
+            $sql = "DELETE FROM online_users WHERE login = '$login'";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
             session_destroy();
             unset($_SESSION['email']);
             unset($_SESSION['login']);
             header("Location:$location");
+        }
+
+        public function deleteSessionAFK()
+        {
+            if(time()>$_SESSION['time'] && isset($_SESSION['login']))
+            {
+                $login = $_SESSION['login'];
+                $sql = "DELETE FROM online_users WHERE login = '$login'";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+
+                session_destroy();
+                unset($_SESSION['email']);
+                unset($_SESSION['login']);
+                header('Location:../../index.php');
+            }
         }
 
         protected function getAllUsers()

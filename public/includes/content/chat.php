@@ -3,14 +3,15 @@ session_start();
 require ('../../../vendor/autoload.php'); 
     $users = new \Classes\View\UsersView();
     $mess = new \Classes\Controller\UsersContr();
+    $logout = new \Classes\Model\Users();
     @$log = $_GET['profile'];
     @$log2 = $_GET['user']; 
 
     if(isset($_GET['action']) && $_GET['action'] == 'logout')
-    {
-        $logout = new \Classes\Model\Users();
+    {     
         $logout->logout('../../index.php?action=logout');
     }
+$logout->deleteSessionAFK();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,15 +50,22 @@ require ('../../../vendor/autoload.php');
             <div id="users-top">
                 <p>Watchers(<?php echo $users->countWatchers(); ?>): </p>
             </div>
-            <ul>
-                <?php
-                    $users->showYourWatchers();
-                ?>
-                <ul id="opList"">
-                    <li><a href="">Opt1</a></li>
-                    <li><a href="">Opt2</a></li>
+            <div id="users-online">
+                <p>Online()</p>
+            </div>
+                <ul>
+                    <?php
+                        $users->showYourWatchers();
+                    ?>
                 </ul>
-            </ul>
+            <div id="users-offline">
+                <p>Offline()</p>
+            </div>
+                <ul>
+                    <?php
+                        $users->showYourWatchers();
+                    ?>
+                </ul>
         </div>
         <?php if(isset($_GET['user'])){ ?>
         <div id="chat-cont">
