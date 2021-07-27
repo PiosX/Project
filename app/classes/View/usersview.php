@@ -50,9 +50,13 @@
         {
             $this->getTinyAvatar($path);
         }
-        public function showYourWatchers()
+        public function showYourOnlineWatchers()
         {
-            $this->getYourWatchers();
+            $this->getYourOnlineWatchers();
+        }
+        public function showYourOfflineWatchers()
+        {
+            $this->getYourOfflineWatchers();
         }
         public function countWatchers()
         {

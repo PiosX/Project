@@ -53,19 +53,23 @@ $logout->deleteSessionAFK();
             <div id="users-online">
                 <p>Online()</p>
             </div>
-                <ul>
-                    <?php
-                        $users->showYourWatchers();
-                    ?>
-                </ul>
+                <div id="online-cont">
+                    <ul>
+                        <?php
+                            $users->showYourOnlineWatchers();
+                        ?>
+                    </ul>
+                </div>
             <div id="users-offline">
-                <p>Offline()</p>
+                <p>Offline(<?php echo $logout->countOfflineWtch(); ?>)</p>
             </div>
-                <ul>
-                    <?php
-                        $users->showYourWatchers();
-                    ?>
-                </ul>
+                <div id="offline-cont">
+                    <ul>
+                        <?php
+                            $users->showYourOfflineWatchers();
+                        ?>
+                    </ul>
+                </div>    
         </div>
         <?php if(isset($_GET['user'])){ ?>
         <div id="chat-cont">

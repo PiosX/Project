@@ -444,7 +444,7 @@ use PDOException;
                 }
             }
         }
-        protected function getYourWatchers()
+        protected function getYourOnlineWatchers()
         {
             $login = $_SESSION['login'];
             @$log = $_GET['user'];
@@ -457,7 +457,50 @@ use PDOException;
             {
                 while($row = $stmt->fetch())
                 {
-                    echo "<li><a href='chat.php?user=".$row['set_to']."' id='users-ch'>".$row['set_to']."</a></li>";
+                    $countOnline[] = $row['set_to'];
+                }
+                $sql = "SELECT * FROM online_users";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+                if($stmt->rowCount()>0)
+                {
+                    while($row = $stmt->fetch())
+                    {
+                        if(in_array($row['login'],$countOnline))
+                        {
+                            echo "<li><a href='chat.php?user=".$row['login']."' id='users-ch'>".$row['login']."</a></li>";
+                        }
+                    }
+                }
+            }
+        }
+        protected function getYourOfflineWatchers()
+        {
+            $login = $_SESSION['login'];
+            @$log = $_GET['user'];
+
+            $sql = "SELECT * FROM online_users";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    $countOffline[] = $row['login'];
+                }
+                $sql = "SELECT * FROM check_status WHERE login = '$login'";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+                if($stmt->rowCount()>0)
+                {
+                    while($row = $stmt->fetch())
+                    {
+                        if(!in_array($row['set_to'],$countOffline))
+                        {
+                            echo "<li><a href='chat.php?user=".$row['set_to']."' id='users-ch'>".$row['set_to']."</a></li>";
+                        }
+                    }
                 }
             }
         }
