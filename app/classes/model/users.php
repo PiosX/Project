@@ -504,4 +504,67 @@ use PDOException;
                 }
             }
         }
+        public function countYourOfflineWatchers()
+        {
+            $login = $_SESSION['login'];
+            $count = 0;
+
+            $sql = "SELECT * FROM online_users";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    $countOffline[] = $row['login'];
+                }
+                $sql = "SELECT * FROM check_status WHERE login = '$login'";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+                if($stmt->rowCount()>0)
+                {
+                    while($row = $stmt->fetch())
+                    {
+                        if(!in_array($row['set_to'],$countOffline))
+                        {
+                            $count = $count + 1;
+                        }
+                    }
+                    echo $count;
+                }
+            }
+        }
+        public function countYourOnlineWatchers()
+        {
+            $login = $_SESSION['login'];
+            @$log = $_GET['user'];
+            $count = 0;
+
+            $sql = "SELECT * FROM check_status WHERE login = '$login'";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    $countOnline[] = $row['set_to'];
+                }
+                $sql = "SELECT * FROM online_users";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+                if($stmt->rowCount()>0)
+                {
+                    while($row = $stmt->fetch())
+                    {
+                        if(in_array($row['login'],$countOnline))
+                        {
+                            $count = $count + 1;
+                        }
+                    }
+                    echo $count;
+                }
+            }
+        }
     }

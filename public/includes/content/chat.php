@@ -51,7 +51,7 @@ $logout->deleteSessionAFK();
                 <p>Watchers(<?php echo $users->countWatchers(); ?>): </p>
             </div>
             <div id="users-online">
-                <p>Online()</p>
+                <p>Online(<?php echo $logout->countYourOnlineWatchers(); ?>)</p>
             </div>
                 <div id="online-cont">
                     <ul>
@@ -61,7 +61,7 @@ $logout->deleteSessionAFK();
                     </ul>
                 </div>
             <div id="users-offline">
-                <p>Offline(<?php echo $logout->countOfflineWtch(); ?>)</p>
+                <p>Offline(<?php echo $logout->countYourOfflineWatchers(); ?>)</p>
             </div>
                 <div id="offline-cont">
                     <ul>
