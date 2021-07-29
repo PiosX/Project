@@ -1,0 +1,97 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background-color: #060606;
+    font-family: 'Encode Sans Semi Expanded', sans-serif;
+}
+
+.top-container{
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+}
+
+.top-container a{
+    line-height: 80px;
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    padding: 30px;
+}
+
+.top-container a:hover{
+    color: #00ffff;
+}
+
+.top-container nav{
+    margin-left: 40px;
+    width: 60%;
+    float: left;
+}
+
+#homeLog{
+    position: absolute;
+    right: 2%;
+    margin-top: 20px;
+    padding: 15px 25px 15px 25px;
+    margin-left: 60%;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    background-color: #060606;
+    border: none;
+    cursor: pointer;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+}
+
+#homeLog:hover{
+    background-color: #e91e63;
+    border: 1px solid #e91e63;
+    color: white;
+    font-weight: bold;
+}
+
+.mid-container{
+    width: 100%;
+    height: 97vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#avatar{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    float: right;
+    margin-right: 10%;
+    position: relative;
+    top: 30%;
+    transform: translate(-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ffff0f;
+}
+
+#avatarHref{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#tinyAvatar{
+    position: absolute;
+}
+
+#ranking{
+    width: 70%;
+    height: 80%;
+    background-color: #222222;
+    margin: auto;
+    position: relative;
+    top: 15%;
+    border-radius: 10px;
+}

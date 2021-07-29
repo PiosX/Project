@@ -36,9 +36,9 @@ $logout->deleteSessionAFK();
         </div>
     </div>
     <div class="top-container">
-        <a href="">Informations</a>
+        <a href="informations.php">Informations</a>
         <a href="chat.php">Chat</a>
-        <a href="">Forum</a>
+        <a href="forum.php">Forum</a>
         <a href="profile.php?profile=<?php echo $_SESSION['login'] ?>" id="actual">Profile</a>
         <div id="avatar">
             <?php
