@@ -39,7 +39,7 @@ $logout->deleteSessionAFK();
     </div>
     <div class="mid-container">
         <div id="ranking">
-            <table>
+            <table id="rankTable">
                 <thead>
                     <tr>
                         <th></th>
@@ -50,7 +50,9 @@ $logout->deleteSessionAFK();
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <?php
+                        $username->showUsersRank();
+                    ?>
                 </tbody>
             </table>
         </div>

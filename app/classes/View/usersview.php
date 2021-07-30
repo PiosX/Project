@@ -66,5 +66,9 @@
             $stmt->execute();
             return $stmt->rowCount();
         }
+        public function showUsersRank()
+        {
+            $this->getUsersRank();
+        }
     }
 ?>

@@ -95,3 +95,18 @@ body{
     top: 15%;
     border-radius: 10px;
 }
+
+td img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#rankLink{
+    text-decoration: none;
+    color: white;
+}
+
+#rankLink:hover{
+    color: #ffff0f;
+}

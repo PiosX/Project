@@ -567,4 +567,25 @@ use PDOException;
                 }
             }
         }
+        protected function getUsersRank()
+        {
+            $rank = 1;
+            $sql = "SELECT user_stats.login, user_stats.watchers, user_stats.posts, avatars.image FROM user_stats INNER JOIN avatars ON user_stats.login = avatars.login ORDER BY user_stats.watchers DESC, user_stats.login";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount()>0)
+            {
+                while($row = $stmt->fetch())
+                {
+                    echo "<tr>";
+                        echo "<td>".$rank++."</td>";
+                        echo "<td><img src='../../images/".$row['image']."' width='40px' height='40px'></td>";
+                        echo "<td><a id='rankLink' href='profile.php?profile=".$row['login']."'>".$row['login']."</a></td>";
+                        echo "<td>".$row['posts']."</td>";
+                        echo "<td>".$row['watchers']."</td>";
+                    echo "</td>";
+                }
+            }
+        }
     }
