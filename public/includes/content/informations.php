@@ -43,10 +43,10 @@ $logout->deleteSessionAFK();
                 <thead>
                     <tr>
                         <th></th>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Posts</th>
-                        <th>Watchers</th>
+                        <th id="hRankIm"></th>
+                        <th id="hRankName">Name</th>
+                        <th id='hRankPos'>Posts</th>
+                        <th id='hRankW'>Watchers</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -579,11 +579,11 @@ use PDOException;
                 while($row = $stmt->fetch())
                 {
                     echo "<tr>";
-                        echo "<td>".$rank++."</td>";
-                        echo "<td><img src='../../images/".$row['image']."' width='40px' height='40px'></td>";
-                        echo "<td><a id='rankLink' href='profile.php?profile=".$row['login']."'>".$row['login']."</a></td>";
-                        echo "<td>".$row['posts']."</td>";
-                        echo "<td>".$row['watchers']."</td>";
+                        echo "<td id='rankP'>".$rank++."</td>";
+                        echo "<td id='rankIm'><img src='../../images/".$row['image']."' width='40px' height='40px'></td>";
+                        echo "<td id='rankLink'><a href='profile.php?profile=".$row['login']."'>".$row['login']."</a></td>";
+                        echo "<td id='rankPos'>".$row['posts']."</td>";
+                        echo "<td id='rankW'>".$row['watchers']."</td>";
                     echo "</td>";
                 }
             }

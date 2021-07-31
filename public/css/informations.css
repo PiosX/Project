@@ -102,11 +102,75 @@ td img{
     border-radius: 50%;
 }
 
-#rankLink{
+#rankTable a{
     text-decoration: none;
     color: white;
 }
 
 #rankLink:hover{
+    color: #ffff0f;
+}
+
+#ranking table{
+    margin: auto;
+}
+
+#rankTable{
+    border-collapse: collapse;
+}
+
+#rankTable tbody tr{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+#rankTable td{
+    color: white;
+}
+
+#rankTable th{
+    border-left: 1px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #11ACDD;
+}
+
+#rankLink{
+    border-right: 1px solid white;
+    padding: 10px 140px 10px 0px;
+}
+
+#rankIm{
+    border-right: none;
+    padding: 10px 30px 10px 30px;
+}
+
+#rankP{
+    border: 1px solid white;
+    padding: 10px 30px 10px 30px;
+}
+
+#rankPos{
+    border: 1px solid white;
+    padding: 10px 140px 10px 140px;
+}
+
+#rankW{
+    border: 1px solid white;
+    padding: 10px 140px 10px 140px;
+}
+
+#hRankName{
+    text-align: left;
+    padding-left: 10px;
+    border-left: 0 !important;
+}
+
+#hRankW{
+    border-right: 1px solid white;
+}
+
+#rankTable #rankP{
     color: #ffff0f;
 }
