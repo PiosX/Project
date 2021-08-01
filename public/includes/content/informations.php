@@ -39,10 +39,11 @@ $logout->deleteSessionAFK();
     </div>
     <div class="mid-container">
         <div id="ranking">
+            <h1>Top Watchers</h1>
             <table id="rankTable">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th id='hRankR'></th>
                         <th id="hRankIm"></th>
                         <th id="hRankName">Name</th>
                         <th id='hRankPos'>Posts</th>

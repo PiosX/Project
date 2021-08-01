@@ -129,7 +129,7 @@ td img{
 }
 
 #rankTable th{
-    border-left: 1px solid white;
+    border: 1px solid white;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 20px;
@@ -139,6 +139,10 @@ td img{
 #rankLink{
     border-right: 1px solid white;
     padding: 10px 140px 10px 0px;
+}
+
+#rankLink a:hover{
+    color: #00ffff;
 }
 
 #rankIm{
@@ -171,6 +175,21 @@ td img{
     border-right: 1px solid white;
 }
 
+#hRankR{
+    border: none !important;
+}
+
+#hRankIm{
+    border-right: 0 !important;
+}
+
 #rankTable #rankP{
     color: #ffff0f;
+}
+
+h1{
+    text-align: center;
+    color: #ffff0f;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
