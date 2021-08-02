@@ -40,22 +40,25 @@ $logout->deleteSessionAFK();
     <div class="mid-container">
         <div id="ranking">
             <h1>Top Watchers</h1>
-            <table id="rankTable">
-                <thead>
-                    <tr>
-                        <th id='hRankR'></th>
-                        <th id="hRankIm"></th>
-                        <th id="hRankName">Name</th>
-                        <th id='hRankPos'>Posts</th>
-                        <th id='hRankW'>Watchers</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        $username->showUsersRank();
-                    ?>
-                </tbody>
-            </table>
+            <div id="rank-container">
+                <table id="rankTable">
+                    <thead>
+                        <tr>
+                            <th id='hRankR'></th>
+                            <th id="hRankIm"></th>
+                            <th id="hRankName">Name</th>
+                            <th id='hRankPos'>Posts</th>
+                            <th id='hRankW'>Watchers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $username->showUsersRank();
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     </div>
 </body>
