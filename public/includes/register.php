@@ -1,5 +1,11 @@
 <?php
     require ('../../vendor/autoload.php'); 
+
+    $register = new \Classes\Controller\UsersContr();
+
+    $login = $_POST['login'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,19 +36,15 @@
         <div id="regi">
             <h2 id="reg-inf">Sign Up</h2>
             <form action="" method="POST" id="reg-form">
-                <input type="text" name="login" placeholder="Login"/><br />
-                <input type="email" name="email" placeholder="Email"/><br />
-                <input type="password" name="password" placeholder="Password"/><br />
+                <input type="text" name="login" placeholder="Login" value="<?php echo htmlspecialchars($login) ?>" /><br />
+                <input type="email" name="email" placeholder="Email" value="<?php echo htmlspecialchars($email) ?>"/><br />
+                <input type="password" name="password" placeholder="Password" value=""/><br />
                 <input type="submit" name="reg-sub" value="Sign Up" id="reg-sub"v/>
                 <p>Back to <a href="login.php">login</a></p>
             </form>
             <?php
-                $register = new \Classes\Controller\UsersContr();
                 if(isset($_POST['reg-sub']))
                 {
-                    $login = $_POST['login'];
-                    $email = $_POST['email'];
-                    $password = $_POST['password'];
                     $register->createUser($login,$email,$password);
                 }
             ?>

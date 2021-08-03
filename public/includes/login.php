@@ -1,5 +1,10 @@
 <?php
     require ('../../vendor/autoload.php'); 
+
+    $log_in = new \Classes\Controller\UsersContr();
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,18 +35,14 @@
         <div id="log">
             <h2 id="log-inf">Welcome</h2>
             <form action="" method="POST" id="login-form">
-                <input type="email" name="email" placeholder="Email"/><br />
-                <input type="password" name="password" placeholder="Password"/><br />
+                <input type="email" name="email" placeholder="Email" value = "<?php echo htmlspecialchars($email) ?>"/><br />
+                <input type="password" name="password" placeholder="Password" value = ""/><br />
                 <input type="submit" name="log-sub" value="Sign In" id="log-sub"/>
                 <p id="reg">Don't have an account? <a href="register.php">Sign Up</a></p>
             </form>  
             <?php
-                $log_in = new \Classes\Controller\UsersContr();
                 if(isset($_POST['log-sub']))
                 {
-                    $email = $_POST['email'];
-                    $password = $_POST['password'];
-
                     $log_in->loginUser($email,$password);
                 }
             ?>
