@@ -97,7 +97,7 @@ use PDOException;
                             if(isset($_SESSION['email']))
                             {
                                 header("Location:content/profile.php?profile=".$_SESSION['login']."");
-                                $login = $_SESSION['login'];
+                                $login = $_SESSION['login'] ?? 'Guest';
                                 $sql = "INSERT INTO online_users(login) VALUES('$login')";
                                 $stmt = $this->connect()->prepare($sql);
                                 $stmt->execute();
@@ -165,7 +165,7 @@ use PDOException;
         {
             if(time()>$_SESSION['time'] && isset($_SESSION['login']))
             {
-                $login = $_SESSION['login'];
+                $login = $_SESSION['login'] ?? 'Guest';
                 $sql = "DELETE FROM online_users WHERE login = '$login'";
                 $stmt = $this->connect()->prepare($sql);
                 $stmt->execute();

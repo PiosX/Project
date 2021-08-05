@@ -71,7 +71,7 @@ $logout->deleteSessionAFK();
                     </ul>
                 </div>    
         </div>
-        <?php if(isset($_GET['user'])){ ?>
+        <?php if(isset($_GET['user'])): ?>
         <div id="chat-cont">
             <div id="send-to">
                 <p>Chat with: <span><?php echo $users->showChatUser(); ?></span></p>
@@ -90,7 +90,7 @@ $logout->deleteSessionAFK();
                 ?>
             </div>
         </div>
-        <?php } ?>
+        <?php endif; ?>
     </div>
 </body>
 </html>
