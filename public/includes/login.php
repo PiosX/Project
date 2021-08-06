@@ -5,6 +5,7 @@
 
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $remEmail = $_COOKIE['rememberEmail'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +36,11 @@
         <div id="log">
             <h2 id="log-inf">Welcome</h2>
             <form action="" method="POST" id="login-form">
-                <input type="email" name="email" placeholder="Email" value = "<?php echo htmlspecialchars($email) ?>"/><br />
+                <input type="email" name="email" placeholder="Email" value = "<?php echo htmlspecialchars($remEmail) ?>"/><br />
                 <input type="password" name="password" placeholder="Password" value = ""/><br />
+                <label>
+                    <input type="checkbox" name="remember" id="rem-box">Remember me
+                </label>
                 <input type="submit" name="log-sub" value="Sign In" id="log-sub"/>
                 <p id="reg">Don't have an account? <a href="register.php">Sign Up</a></p>
             </form>  
@@ -44,6 +48,11 @@
                 if(isset($_POST['log-sub']))
                 {
                     $log_in->loginUser($email,$password);
+                    
+                    if(isset($_POST['remember']))
+                    {
+                        setcookie('rememberEmail', $_POST['email'], time() + 60*60*24*30);
+                    }
                 }
             ?>
         </div>
