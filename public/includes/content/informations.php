@@ -25,6 +25,9 @@ $logout->deleteSessionAFK();
     <script src="../../javascript/log_panel.js"></script>
 </head>
 <body>
+    <?php if(isset($_SESSION['login']) || isset($_SESSION['email']))
+            { 
+    ?>
     <div class="top-container">
         <a href="informations.php">Informations</a>
         <a href="chat.php">Chat</a>
@@ -61,5 +64,12 @@ $logout->deleteSessionAFK();
             
         </div>
     </div>
+    <?php
+            }
+            else
+            {
+                echo "<p style='text-align:center;color:white;font-size:20px;'>You are not logged in. Please <a href='../login.php' style='color:#ffff0f;text-decoration:none;'>log in</a> and try again.</p>";
+            }
+    ?>
 </body>
 </html>

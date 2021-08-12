@@ -2,7 +2,6 @@
 session_start();
 require ('../../../vendor/autoload.php'); 
 $username = new \Classes\View\UsersView();
-$username->checkUserName();
 $avatar = new \Classes\Controller\UsersContr();
 $logout = new \Classes\Model\Users();
 
@@ -26,6 +25,10 @@ $logout->deleteSessionAFK();
     <script src="../../javascript/log_panel.js"></script>
 </head>
 <body>
+<?php if(isset($_SESSION['login']) || isset($_SESSION['email']))
+            { 
+                $username->checkUserName();
+    ?>
     <div id="confirm-cont">
         <div id="confirm">
             <p>Confirm Watch</p>
@@ -98,5 +101,12 @@ $logout->deleteSessionAFK();
             </div>
         </div>
     </div>
+    <?php
+            }
+            else
+            {
+                echo "<p style='text-align:center;color:white;font-size:20px;'>You are not logged in. Please <a href='../login.php' style='color:#ffff0f;text-decoration:none;'>log in</a> and try again.</p>";
+            }
+    ?>
 </body>
 </html>

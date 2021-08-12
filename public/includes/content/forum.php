@@ -25,6 +25,9 @@ $logout->deleteSessionAFK();
     <script src="../../javascript/log_panel.js"></script>
 </head>
 <body>
+    <?php if(isset($_SESSION['login']) || isset($_SESSION['email']))
+            { 
+    ?>
     <div id="confirm-cont">
         <div id="confirm">
             <p>Confirm Watch</p>
@@ -49,5 +52,12 @@ $logout->deleteSessionAFK();
     <div class="mid-container">
 
     </div>
+    <?php
+            }
+            else
+            {
+                echo "<p style='text-align:center;color:white;font-size:20px;'>You are not logged in. Please <a href='../login.php' style='color:#ffff0f;text-decoration:none;'>log in</a> and try again.</p>";
+            }
+    ?>
 </body>
 </html>

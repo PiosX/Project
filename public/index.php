@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="top-container">
-        <a href="">Home</a>
+        <a href="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>">Home</a>
         <a href="">Informations</a>
         <a href="">Chat</a>
         <a href="">Forum</a>

@@ -163,7 +163,7 @@ use PDOException;
 
         public function deleteSessionAFK()
         {
-            if(time()>$_SESSION['time'] && isset($_SESSION['login']))
+            if(time()>@$_SESSION['time'] && isset($_SESSION['login']))
             {
                 $login = $_SESSION['login'] ?? 'Guest';
                 $sql = "DELETE FROM online_users WHERE login = '$login'";
@@ -173,6 +173,7 @@ use PDOException;
                 session_destroy();
                 unset($_SESSION['email']);
                 unset($_SESSION['login']);
+                unset($_SESSION['time']);
                 header('Location:../../index.php');
             }
         }
